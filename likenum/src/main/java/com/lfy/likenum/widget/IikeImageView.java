@@ -13,11 +13,10 @@ import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewPropertyAnimator;
 
 import com.lfy.likenum.R;
 
-public class IikeImageView extends View {
+public class IikeImageView extends View implements View.OnClickListener {
 
     private Paint paint;
     private Bitmap likeUnselected, likeSelected, likeSelectedShining;
@@ -61,6 +60,7 @@ public class IikeImageView extends View {
         width = likeSelected.getWidth();
         height = likeSelected.getHeight() + likeSelectedShining.getHeight();
 
+        setOnClickListener(this);
     }
 
     @Override
@@ -94,10 +94,8 @@ public class IikeImageView extends View {
         }
     }
 
-
     @Override
-    public void setOnClickListener(@Nullable OnClickListener l) {
-        super.setOnClickListener(l);
+    public void onClick(View v) {
         startAnim();
     }
 
